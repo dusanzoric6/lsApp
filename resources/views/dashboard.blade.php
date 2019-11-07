@@ -9,12 +9,39 @@
 
                 <div class="card-body">
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
                     @endif
-
-                    You are logged in!
+                    <div class="py-2">
+                        <a class="btn btn-primary" href="posts/create">Create Post</a>
+                    </div>
+                    <h3>Your Blog Posts</h3>
+                    @if (count($posts) > 0)
+                        <table class="table table-striped">
+                            <tr>
+                                <th>Title</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            @foreach ($posts as $post)
+                            <tr>
+                                <td>{{$post->title}}</td>
+                                <td><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></td>
+                                <td>         <!-- delete button -->
+                                    <form action="{{ route('posts.destroy',$post->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <!-- delete button -->
+                                            <button type="submit" class="btn btn-danger float-right">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </table>
+                    @else
+                        <p>You have no posts</p>    
+                    @endif
                 </div>
             </div>
         </div>

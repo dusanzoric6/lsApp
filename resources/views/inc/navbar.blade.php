@@ -1,4 +1,4 @@
- <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
@@ -22,9 +22,6 @@
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="/posts">Blog</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="posts/create">Create Post</a>
                 </li>
             </ul>
             <!-- Right Side Of Navbar -->
@@ -51,7 +48,7 @@
                                                  document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
                         </a>
-
+                        <a class="dropdown-item" href="/dashboard">DashBoard</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
