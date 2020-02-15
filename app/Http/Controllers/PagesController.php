@@ -23,4 +23,8 @@ class PagesController extends Controller
         );
         return view('pages.services')->with($data);
     }
+
+    public function fiksni1(){
+        return view('pages.windows.fiksni1');
+    }
 }

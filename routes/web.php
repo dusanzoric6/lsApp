@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,3 +21,9 @@ Route::resource('posts', 'PostsController');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+
+Route::get('fiksni1', 'PagesController@fiksni1');
+
+Route::post('fiksni1', 'WindowsController@calculate');
+
+
