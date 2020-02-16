@@ -7,8 +7,13 @@ class Helper
     public static function fiksnoRacun($request){
         $sirina = $request->input('sirina');
         $visina = $request->input('visina');
+
         $cena = $sirina + $visina;
-        
-        return $cena;
+        $stokMetar = (($sirina + $visina) * 2) - 0.55;
+
+        return $data = array(
+            'cena'=> $cena,
+            'stokMetar'=> $stokMetar
+         );
     }
 }

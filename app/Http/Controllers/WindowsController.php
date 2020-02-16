@@ -14,18 +14,7 @@ class WindowsController extends Controller
    }
 
    public function calculate(Request $request){
-
-       $data = array(
-           'cena'=> Helper::fiksnoRacun($request)
-        );
-        
-        // $this->validate($request,[
-            //     'sirina' => 'required',
-            //     'visina' => 'required'
-            // ]);
-            
-            return view('pages.windows.fiksni1')->with($data);
-        }
-        
+        $data =  Helper::fiksnoRacun($request);
+        return view('pages.windows.fiksni1')->with($data);
     }
-    
+}
